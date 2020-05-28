@@ -1,14 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from "@angular/core";
+import { ModalRef } from "../shared/modal-ref";
 
 @Component({
-  selector: 'app-login-modal',
-  template: `Login Modal Component`
+  selector: "app-login-modal",
+  template: `
+    Login Modal Component <button (click)="onClickClose()">Close</button>
+  `
 })
 export class LoginModalComponent implements OnInit {
+  
+  constructor(private modalRef: ModalRef) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  onClickClose() {
+    this.modalRef.close();
   }
-
 }
